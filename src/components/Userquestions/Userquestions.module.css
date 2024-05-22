@@ -1,0 +1,33 @@
+.userquestionscont {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.formscont {
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.inputbar {
+  background-color: #2e3442;
+  color: #b1baba;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.submitB {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: none;
+  color: white;
+  padding: 0.8rem;
+  padding-inline: 2rem;
+  border-radius: 0.5rem;
+  background-color: #d90429;
+  cursor: pointer;
+}

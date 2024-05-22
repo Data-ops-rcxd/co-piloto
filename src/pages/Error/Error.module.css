@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.cont {
+  font-family: "Lexend", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 100vh;
+  background-color: #12151c;
+}
+.logo {
+  cursor: pointer;
+  height: 200px;
+}
+p {
+  color: grey;
+}

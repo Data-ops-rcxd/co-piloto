@@ -1,0 +1,121 @@
+.info_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info_content {
+  background: #242a38;
+  border: black solid 0.12rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about {
+  display: flex;
+  justify-content: center;
+  color: #d6d6d6;
+}
+
+.close_button {
+  position: relative;
+  height: 28px;
+  width: 28px;
+  color: white;
+  background-color: #d90429;
+  margin-top: 1rem;
+  left: 44%;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+/* card stuff */
+
+.information {
+  font-family: "Lexend", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  color: white;
+}
+.conttitle {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 1rem;
+  align-items: center;
+}
+.title {
+  margin-left: 0.8rem;
+  padding-top: 0.5rem;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+.brandcont {
+  background-color: #242a38;
+  border-radius: 0 0 0 16px;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+}
+.brandimg {
+  display: block;
+  max-height: 80px;
+  max-width: 100%;
+}
+.carimg {
+  padding-block: 1rem;
+  width: 500px;
+}
+.continfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: 1rem;
+  padding-inline: 1rem;
+  border-bottom: #d90429 solid 0.1rem;
+  width: 90%;
+}
+.carinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: xx-large;
+  padding-bottom: 1rem;
+}
+.carinfo div {
+  font-size: large;
+  font-weight: lighter;
+}
+.contprice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: x-large;
+  padding-block: 0.2rem;
+}
+.otherinfocont{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding-bottom: 2rem;
+}
+.otherinfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+#one{
+  padding-right: 3rem;
+}
