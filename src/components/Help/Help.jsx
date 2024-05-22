@@ -29,7 +29,7 @@ const Help = ({ onClose }) => {
           <br />
           <ul>
             <li>
-              <strong>Year:</strong> 1990-20221
+              <strong>Year:</strong> 1990-2022
             </li>
             <li>
               <strong>Kilometer:</strong> 0-100.000
