@@ -22,6 +22,7 @@
   }
   .about {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     color: #d6d6d6;
   }
