@@ -1,7 +1,7 @@
 //fetch function for the page...
 //This function will return a recommended car based on the data provided by the user
-const url_predict = "http://ddman.pythonanywhere.com/predict/";
-const url_getall = "http://ddman.pythonanywhere.com/get_all";
+const url_predict = "https://ddman.pythonanywhere.com/predict/";
+const url_getall = "https://ddman.pythonanywhere.com/get_all";
 
 async function getRecommendedCar(data) {
   const response = await fetch(url_predict, {
