@@ -18,8 +18,15 @@ const Info = ({ card, onClose }) => {
               />
             </div>
             <div className={styles.title}>{card.Name}</div>
-
-            <img src={card.Image} alt="carimg" className={styles.carimg} />
+            {card.Image ? (
+              <img src={card.Image} alt="carimg" className={styles.carimg} />
+            ) : (
+              <img
+                src="https://images.cars.com/cldstatic/wp-content/uploads/25626570-1425510871661.jpeg"
+                alt="carimg"
+                className={styles.carimg}
+              />
+            )}
           </div>
           <div className={styles.continfo}>
             <div className={styles.carinfo}>
@@ -43,9 +50,8 @@ const Info = ({ card, onClose }) => {
               {card.Transmission}
             </div>
           </div>
-
           <div className={styles.otherinfocont}>
-              <h2>Other details</h2>
+            <h2>Other details</h2>
             <div className={styles.otherinfo}>
               <div id={styles.one}>
                 Kilometers driven
