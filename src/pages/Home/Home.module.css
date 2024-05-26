@@ -53,10 +53,8 @@ body {
 }
 .recomendationscont {
   display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+  grid-auto-flow: row;
+  justify-items: center;
   gap: 1rem;
   overflow: scroll;
   overflow-y: hidden;
@@ -122,6 +120,7 @@ body {
   border-radius: 0.5rem;
   background-color: #d90429;
   cursor: pointer;
+  width: 300px;
 }
 .searchresultscont {
   display: flex;

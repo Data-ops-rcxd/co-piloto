@@ -96,23 +96,30 @@ const Home = () => {
             <div className={styles.titles}>Recommendations</div>
             <div className={styles.recomendationscont}>
               {recommendedcar.length > 0 ? (
-                <div className={styles.justacont}>
-                  {recommendedcar.map((item, index) => (
-                    console.log(item),
-                    <Card
-                      key={index}
-                      name={item.Name}
-                      brand={item.Brand}
-                      price={item.Price}
-                      seats={item.Seats}
-                      ccengine={item.Engine}
-                      year={item.Year}
-                      fueltype={item.Fuel_Type}
-                      img={item.Image}
-                      handleShowCard={() => handleShowCard(item)}
-                    />
-                  ))}
-                </div>
+                <>
+                  <div className={styles.justacont}>
+                    {recommendedcar.map((item, index) => (
+                      <Card
+                        key={index}
+                        name={item.Name}
+                        brand={item.Brand}
+                        price={item.Price}
+                        seats={item.Seats}
+                        ccengine={item.Engine}
+                        year={item.Year}
+                        fueltype={item.Fuel_Type}
+                        img={item.Image}
+                        handleShowCard={() => handleShowCard(item)}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    className={styles.changeP}
+                    onClick={resetLocalStorage}
+                  >
+                    Change Answers
+                  </button>
+                </>
               ) : (
                 <div className={styles.userquestioncont}>
                   <h3>
@@ -122,9 +129,6 @@ const Home = () => {
                 </div>
               )}
             </div>
-            <button className={styles.changeP} onClick={resetLocalStorage}>
-              Change Answers
-            </button>
           </div>
           <div className={styles.searchcont}>
             <div className={styles.titles}>Looking for a car?</div>
