@@ -12,7 +12,7 @@ async function getRecommendedCar(data) {
     body: JSON.stringify(data),
   });
   const result = await response.json();
-  return [result];
+  return result;
 }
 
 // {

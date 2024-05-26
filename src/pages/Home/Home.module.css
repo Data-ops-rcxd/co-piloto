@@ -56,7 +56,7 @@ body {
   grid-auto-flow: column;
   align-items: center;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
   overflow: scroll;
   overflow-y: hidden;
@@ -117,6 +117,7 @@ body {
   border: none;
   color: white;
   padding: 0.5rem;
+  margin: 1rem;
   padding-inline: 1rem;
   border-radius: 0.5rem;
   background-color: #d90429;
@@ -178,7 +179,7 @@ body {
 }
 .justacont{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 

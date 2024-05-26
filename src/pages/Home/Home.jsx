@@ -66,6 +66,7 @@ const Home = () => {
     }
   }, [userResponses]);
 
+  console.log(recommendedcar);
   return (
     <>
       <div className={styles.maincontainer}>
@@ -98,6 +99,7 @@ const Home = () => {
               {recommendedcar.length > 0 ? (
                 <div className={styles.justacont}>
                   {recommendedcar.map((item, index) => (
+                    console.log(item),
                     <Card
                       key={index}
                       name={item.Name}
@@ -111,12 +113,6 @@ const Home = () => {
                       handleShowCard={() => handleShowCard(item)}
                     />
                   ))}
-                  <button
-                    className={styles.changeP}
-                    onClick={resetLocalStorage}
-                  >
-                    Change Answers
-                  </button>
                 </div>
               ) : (
                 <div className={styles.userquestioncont}>
@@ -127,6 +123,9 @@ const Home = () => {
                 </div>
               )}
             </div>
+            <button className={styles.changeP} onClick={resetLocalStorage}>
+              Change Answers
+            </button>
           </div>
           <div className={styles.searchcont}>
             <div className={styles.titles}>Looking for a car?</div>
