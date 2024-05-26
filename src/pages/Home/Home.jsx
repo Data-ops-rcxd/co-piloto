@@ -66,7 +66,6 @@ const Home = () => {
     }
   }, [userResponses]);
 
-  console.log(recommendedcar);
   return (
     <>
       <div className={styles.maincontainer}>
