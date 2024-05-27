@@ -41,10 +41,10 @@ const UserQuestions = ({ check }) => {
 
       if (!Year || Year < 1990 || Year > 2022) return false;
       if (!Kilometer || Kilometer < 0 || Kilometer > 100000) return false;
-      if (Fuel === "none" || Fuel < 0 || Fuel > 3) return false;
-      if (Transmission === "none" || Transmission < 0 || Transmission > 1)
+      if (Fuel === "" || Fuel < 0 || Fuel > 3) return false;
+      if (Transmission === "" || Transmission < 0 || Transmission > 1)
         return false;
-      if (Owner === "none" || Owner < 0 || Owner > 3) return false;
+      if (Owner === "" || Owner < 0 || Owner > 3) return false;
       if (!Mileage || Mileage < 15 || Mileage > 40) return false;
       if (!Engine || Engine < 800 || Engine > 6000) return false;
       if (!Seats || Seats < 2 || Seats > 10) return false;
@@ -93,7 +93,7 @@ const UserQuestions = ({ check }) => {
           value={formValues.Fuel}
           onChange={handleChange}
         >
-          <option value="none" disabled defaultValue>
+          <option value="" disabled defaultValue>
             Fuel
           </option>
           <option value="0">GNC</option>
@@ -107,7 +107,7 @@ const UserQuestions = ({ check }) => {
           value={formValues.Transmission}
           onChange={handleChange}
         >
-          <option value="none" disabled defaultValue>
+          <option value="" disabled defaultValue>
             Transmission
           </option>
           <option value="0">Automatic</option>
@@ -119,7 +119,7 @@ const UserQuestions = ({ check }) => {
           value={formValues.Owner}
           onChange={handleChange}
         >
-          <option value="none" disabled defaultValue>
+          <option value="" disabled defaultValue>
             Owner
           </option>
           <option value="0">First owner</option>
