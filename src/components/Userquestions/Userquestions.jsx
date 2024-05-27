@@ -56,10 +56,11 @@ const UserQuestions = ({ check }) => {
     if (isValid()) {
       // Save the user's responses to the localStorage
       localStorage.setItem("userResponses", JSON.stringify(formValues));
-      
+
       check();
     } else {
       alert("Please fill all the fields correctly...  Using older values.");
+      check();
     }
   };
 
