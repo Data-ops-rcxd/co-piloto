@@ -3,6 +3,7 @@ import styles from "./Home.module.css";
 
 //React stuff
 import { useEffect, useState } from "react";
+import { useSwipeable } from "react-swipeable";
 import Card from "../../components/Card";
 import UserQuestions from "../../components/Userquestions";
 import Info from "../../components/Info";
@@ -78,6 +79,19 @@ const Home = () => {
     }
   }, [userResponses]);
 
+  const totalpages = lookcars.length / itemsPerPage;
+
+  const swipehandlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (currentPage < totalpages) {
+        setCurrentPage((old) => old + 1);
+      }
+    },
+    onSwipedRight: () => setCurrentPage((old) => Math.max(old - 1, 1)),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
+
   return (
     <>
       <div className={styles.maincontainer}>
@@ -106,39 +120,37 @@ const Home = () => {
           <button className={styles.helpB} onClick={handleShowHelp}></button>
           <div className={styles.recommendations}>
             <div className={styles.titles}>Recommendations</div>
-              {recommendedcar.length > 0 ? (
-                <div className={styles.recommendationsouterbounds}>
-                  <div className={styles.justacont}>
-                    {recommendedcar.map((item, index) => (
-                      <Card
-                        key={index}
-                        name={item.Name}
-                        brand={item.Brand}
-                        price={item.Price}
-                        seats={item.Seats}
-                        ccengine={item.Engine}
-                        year={item.Year}
-                        fueltype={item.Fuel_Type}
-                        img={item.Image}
-                        handleShowCard={() => handleShowCard(item)}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    className={styles.changeP}
-                    onClick={resetLocalStorage}
-                  >
-                    Change Answers
-                  </button>
+            {recommendedcar.length > 0 ? (
+              <div className={styles.recommendationsouterbounds}>
+                <div className={styles.justacont}>
+                  {recommendedcar.map((item, index) => (
+                    <Card
+                      key={index}
+                      name={item.Name}
+                      brand={item.Brand}
+                      price={item.Price}
+                      seats={item.Seats}
+                      ccengine={item.Engine}
+                      year={item.Year}
+                      fueltype={item.Fuel_Type}
+                      img={item.Image}
+                      handleShowCard={() => handleShowCard(item)}
+                    />
+                  ))}
                 </div>
-              ) : (
-                <div className={styles.userquestioncont}>
-                  <h3>
-                    Please fill the information below to show recommendations, if you need help click the button on the bottom right corner.
-                  </h3>
-                  <UserQuestions check={checkLocalStorage} />
-                </div>
-              )}
+                <button className={styles.changeP} onClick={resetLocalStorage}>
+                  Change Answers
+                </button>
+              </div>
+            ) : (
+              <div className={styles.userquestioncont}>
+                <h3>
+                  Please fill the information below to show recommendations, if
+                  you need help click the button on the bottom right corner.
+                </h3>
+                <UserQuestions check={checkLocalStorage} />
+              </div>
+            )}
           </div>
           <div className={styles.searchcont}>
             <div className={styles.titles}>Looking for a car?</div>
@@ -153,14 +165,23 @@ const Home = () => {
             Filter
             </button>
           </div> */}
-            <div className={styles.searchresultscont}>
-              <button
-                className={styles.pagebutton}
-                onClick={() => setCurrentPage((old) => Math.max(old - 1, 1))}
-                disabled={currentPage === 1}
-              >
-                ←
-              </button>
+            <div {...swipehandlers} className={styles.searchresultscont}>
+              <div className={styles.searcharrows}>
+                <button
+                  className={styles.pagebutton}
+                  onClick={() => setCurrentPage((old) => Math.max(old - 1, 1))}
+                  disabled={currentPage === 1}
+                >
+                  ←
+                </button>
+                <button
+                  className={styles.pagebutton}
+                  onClick={() => setCurrentPage((old) => old + 1)}
+                  disabled={currentPage * itemsPerPage >= lookcars.length}
+                >
+                  →
+                </button>
+              </div>
               {isLoading ? (
                 <>Loading info...</>
               ) : (
@@ -191,13 +212,6 @@ const Home = () => {
                   </div>
                 </div>
               )}
-              <button
-                className={styles.pagebutton}
-                onClick={() => setCurrentPage((old) => old + 1)}
-                disabled={currentPage * itemsPerPage >= lookcars.length}
-              >
-                →
-              </button>
             </div>
           </div>
         </div>

@@ -59,4 +59,8 @@
     border: none;
     border-radius: 0.2rem;
   }
-  
+  @media (max-width: 768px) {
+    .info_content {
+      transform: scale(0.78);
+    }
+  }
