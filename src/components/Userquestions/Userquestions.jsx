@@ -5,13 +5,13 @@ import styles from "./Userquestions.module.css";
 const UserQuestions = ({ check }) => {
   const [formValues, setFormValues] = useState({
     Year: "",
-    Kilometer: "",
+    Kilometer: 0,
     Fuel: "",
     Transmission: "",
     Owner: "",
-    Mileage: "",
-    Engine: "",
-    Seats: "",
+    Mileage: 15,
+    Engine: 800,
+    Seats: 2,
     Price: "",
   });
 
@@ -39,8 +39,9 @@ const UserQuestions = ({ check }) => {
         Price,
       } = formValues;
 
+      console.log(formValues);
       if (!Year || Year < 1990 || Year > 2022) return false;
-      if (!Kilometer || Kilometer < 0 || Kilometer > 100000) return false;
+      if (Kilometer < 0 || Kilometer > 100000) return false;
       if (Fuel === "" || Fuel < 0 || Fuel > 3) return false;
       if (Transmission === "" || Transmission < 0 || Transmission > 1)
         return false;
@@ -78,12 +79,12 @@ const UserQuestions = ({ check }) => {
           max="2022"
         />
         <div className={styles.rangebars}>
-          Kilometer: {formValues.Kilometer || "0"}
+          Kilometer: {formValues.Kilometer}
           <input
             className={styles.inputbar}
             type="range"
             name="Kilometer"
-            value={formValues.Kilometer || "0"}
+            value={formValues.Kilometer}
             onChange={handleChange}
             placeholder="Kilometer"
             min="0"
@@ -131,24 +132,24 @@ const UserQuestions = ({ check }) => {
           <option value="1">4th or above</option>
         </select>
         <div className={styles.rangebars}>
-          Mileage: {formValues.Mileage || "15"}
+          Mileage: {formValues.Mileage}
           <input
             className={styles.inputbar}
             type="range"
             name="Mileage"
-            value={formValues.Mileage || "15"}
+            value={formValues.Mileage}
             onChange={handleChange}
             min="15"
             max="40"
           />
         </div>
         <div className={styles.rangebars}>
-          Engine: {formValues.Engine || "800"}
+          Engine: {formValues.Engine }
           <input
             className={styles.inputbar}
             type="range"
             name="Engine"
-            value={formValues.Engine || "800"}
+            value={formValues.Engine }
             onChange={handleChange}
             placeholder="Engine"
             min="800"
@@ -156,12 +157,12 @@ const UserQuestions = ({ check }) => {
           />
         </div>
         <div className={styles.rangebars}>
-        Seats: {formValues.Seats || "2"}
+        Seats: {formValues.Seats}
         <input
           className={styles.inputbar}
           type="range"
           name="Seats"
-          value={formValues.Seats || "2"}
+          value={formValues.Seats }
           onChange={handleChange}
           placeholder="Seats [2-10]"
           min="2"
