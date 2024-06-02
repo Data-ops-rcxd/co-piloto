@@ -2,6 +2,9 @@
 
 import styles from "./Help.module.css";
 const Help = ({ onClose }) => {
+  const liststyle = {
+    color: "lightgreen",
+  };
   return (
     <div className={styles.info_overlay}>
       <div className={styles.info_content}>
@@ -27,36 +30,53 @@ const Help = ({ onClose }) => {
           our recommendations and find your next vehicle with confidence!
           <br />
           <br />
+          <span style={{ color: "cyan" }}>
+            This site will not grand if the car is available or not, it will
+            only tell the existance of the car.
+          </span>
+          <br />
+          <span style={{ color: "#d90429" }}>Recommendations information:</span>
+          <br />
+          This information will help you to figure out what information do you
+          need in order to get recommendations, please think of what are your
+          needs.
           <ul>
             <li>
-              <strong>Year:</strong> 1990-2022
+              <strong style={liststyle}>Year:</strong> between 1990-2022
             </li>
             <li>
-              <strong>Kilometer:</strong> 0-100.000
+              <strong style={liststyle}>Kilometer driven:</strong> between
+              0-100.000
             </li>
             <li>
-              <strong>Owner:</strong> 0 - first owner, 1 - 4th or above, 2 - 2nd
-              owner, 3 - 3rd owner
+              <strong style={liststyle}>Owner type:</strong> first owner, 2nd
+              owner, 3rd owner, 4th or above
             </li>
             <li>
-              <strong>Transmission:</strong> 0 - automatic, 1 - manual
+              <strong style={liststyle}>Transmission:</strong> Automatic or
+              Manual
             </li>
             <li>
-              <strong>Fuel:</strong> 0 - GNC, 1 - Diesel, 2 - LPG, 3 - Petrol
+              <strong style={liststyle}>Fuel types:</strong> GNC, Diesel, LPG,
+              Petrol
             </li>
             <li>
-              <strong>Mileage:</strong> 15-40
+              <strong style={liststyle}>Mileage [Car efficiency]:</strong>{" "}
+              between 15-40
             </li>
             <li>
-              <strong>Engine:</strong> 800-6000
+              <strong style={liststyle}>Engine CC:</strong> between 800-6000
             </li>
             <li>
-              <strong>Seats:</strong> 2-10
+              <strong style={liststyle}>Seats:</strong> between 2-10
             </li>
             <li>
-              <strong>Price:</strong> 1000-300.000
+              <strong style={liststyle}>Price:</strong> between 1000-300.000
             </li>
           </ul>
+          <br />
+          This prototype uses an Indian Car dataset for... prototyping purposes.
+          <br />
           <br />
           Created By:
           <br />

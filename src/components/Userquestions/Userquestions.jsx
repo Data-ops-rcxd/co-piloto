@@ -73,20 +73,23 @@ const UserQuestions = ({ check }) => {
           name="Year"
           value={formValues.Year}
           onChange={handleChange}
-          placeholder="Year"
+          placeholder="Year [1990-2022]"
           min="1990"
           max="2022"
         />
-        <input
-          className={styles.inputbar}
-          type="number"
-          name="Kilometer"
-          value={formValues.Kilometer}
-          onChange={handleChange}
-          placeholder="Kilometer"
-          min="0"
-          max="100000"
-        />
+        <div className={styles.rangebars}>
+          Kilometer: {formValues.Kilometer || "0"}
+          <input
+            className={styles.inputbar}
+            type="range"
+            name="Kilometer"
+            value={formValues.Kilometer || "0"}
+            onChange={handleChange}
+            placeholder="Kilometer"
+            min="0"
+            max="100000"
+          />
+        </div>
         <select
           className={styles.inputbar}
           name="Fuel"
@@ -123,50 +126,60 @@ const UserQuestions = ({ check }) => {
             Owner
           </option>
           <option value="0">First owner</option>
-          <option value="1">4th or above</option>
           <option value="2">2nd owner</option>
           <option value="3">3rd owner</option>
+          <option value="1">4th or above</option>
         </select>
+        <div className={styles.rangebars}>
+          Mileage: {formValues.Mileage || "15"}
+          <input
+            className={styles.inputbar}
+            type="range"
+            name="Mileage"
+            value={formValues.Mileage || "15"}
+            onChange={handleChange}
+            min="15"
+            max="40"
+          />
+        </div>
+        <div className={styles.rangebars}>
+          Engine: {formValues.Engine || "800"}
+          <input
+            className={styles.inputbar}
+            type="range"
+            name="Engine"
+            value={formValues.Engine || "800"}
+            onChange={handleChange}
+            placeholder="Engine"
+            min="800"
+            max="6000"
+          />
+        </div>
+        <div className={styles.rangebars}>
+        Seats: {formValues.Seats || "2"}
         <input
           className={styles.inputbar}
-          type="number"
-          name="Mileage"
-          value={formValues.Mileage}
-          onChange={handleChange}
-          placeholder="Mileage"
-          min="15"
-          max="40"
-        />
-        <input
-          className={styles.inputbar}
-          type="number"
-          name="Engine"
-          value={formValues.Engine}
-          onChange={handleChange}
-          placeholder="Engine"
-          min="800"
-          max="6000"
-        />
-        <input
-          className={styles.inputbar}
-          type="number"
+          type="range"
           name="Seats"
-          value={formValues.Seats}
+          value={formValues.Seats || "2"}
           onChange={handleChange}
-          placeholder="Seats"
+          placeholder="Seats [2-10]"
           min="2"
           max="10"
         />
+        </div>
+
         <input
           className={styles.inputbar}
           type="number"
           name="Price"
           value={formValues.Price}
           onChange={handleChange}
-          placeholder="Price"
+          placeholder="Price [1000-300000]"
           min="1000"
           max="300000"
         />
+        
         <button className={styles.submitB} type="submit">
           Submit
         </button>

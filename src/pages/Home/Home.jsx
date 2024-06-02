@@ -49,6 +49,18 @@ const Home = () => {
     setRecommendedCar([]);
   };
 
+  const [sortOrder, setSortOrder] = useState("asc"); // Default to ascending order
+
+  const handleSort = () => {
+    if (sortOrder === "asc") {
+      setSortOrder("desc");
+      setlookcars(lookcars.slice().sort((a, b) => b.Price - a.Price));
+    } else {
+      setSortOrder("asc");
+      setlookcars(lookcars.slice().sort((a, b) => a.Price - b.Price));
+    }
+  };
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
@@ -94,9 +106,8 @@ const Home = () => {
           <button className={styles.helpB} onClick={handleShowHelp}></button>
           <div className={styles.recommendations}>
             <div className={styles.titles}>Recommendations</div>
-            <div className={styles.recomendationscont}>
               {recommendedcar.length > 0 ? (
-                <>
+                <div className={styles.recommendationsouterbounds}>
                   <div className={styles.justacont}>
                     {recommendedcar.map((item, index) => (
                       <Card
@@ -119,30 +130,29 @@ const Home = () => {
                   >
                     Change Answers
                   </button>
-                </>
+                </div>
               ) : (
                 <div className={styles.userquestioncont}>
                   <h3>
-                    Please fill the information below to show recommendations
+                    Please fill the information below to show recommendations, if you need help click the button on the bottom right corner.
                   </h3>
                   <UserQuestions check={checkLocalStorage} />
                 </div>
               )}
-            </div>
           </div>
           <div className={styles.searchcont}>
             <div className={styles.titles}>Looking for a car?</div>
             {/* Feature for later... 
             <div className={styles.searchbarcont}>
-              <input
-                className={styles.searchbar}
-                type="text"
-                placeholder="Type here..."
-              />
-              <button type="submit" className={styles.searchfilter}>
-                Filter
-              </button>
-            </div> */}
+            <input
+            className={styles.searchbar}
+            type="text"
+            placeholder="Type here..."
+            />
+            <button type="submit" className={styles.searchfilter}>
+            Filter
+            </button>
+          </div> */}
             <div className={styles.searchresultscont}>
               <button
                 className={styles.pagebutton}
@@ -154,26 +164,31 @@ const Home = () => {
               {isLoading ? (
                 <>Loading info...</>
               ) : (
-                <div className={styles.searchresults}>
-                  {lookcars
-                    .slice(
-                      (currentPage - 1) * itemsPerPage,
-                      currentPage * itemsPerPage
-                    )
-                    .map((item, index) => (
-                      <Card
-                        key={index}
-                        name={item.Name}
-                        brand={item.Brand}
-                        price={item.Price}
-                        seats={item.Seats}
-                        ccengine={item.Engine}
-                        year={item.Year}
-                        fueltype={item.Fuel_Type}
-                        img={item.Image}
-                        handleShowCard={() => handleShowCard(item)}
-                      />
-                    ))}
+                <div className={styles.searchresultsinsidecont}>
+                  <button className={styles.searchfilter} onClick={handleSort}>
+                    Sort by price ({sortOrder === "asc" ? "asc" : "desc"})
+                  </button>
+                  <div className={styles.searchresults}>
+                    {lookcars
+                      .slice(
+                        (currentPage - 1) * itemsPerPage,
+                        currentPage * itemsPerPage
+                      )
+                      .map((item, index) => (
+                        <Card
+                          key={index}
+                          name={item.Name}
+                          brand={item.Brand}
+                          price={item.Price}
+                          seats={item.Seats}
+                          ccengine={item.Engine}
+                          year={item.Year}
+                          fueltype={item.Fuel_Type}
+                          img={item.Image}
+                          handleShowCard={() => handleShowCard(item)}
+                        />
+                      ))}
+                  </div>
                 </div>
               )}
               <button

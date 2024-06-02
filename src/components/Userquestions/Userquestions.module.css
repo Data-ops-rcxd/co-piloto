@@ -1,23 +1,30 @@
 .userquestionscont {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 .formscont {
   display: flex;
-  flex-wrap: wrap;
-  width: 700px;
-  gap: 0.5rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 250px;
+  gap: 0.8rem;
   justify-content: center;
+  margin: 1rem;
 }
 .inputbar {
   background-color: #2e3442;
   color: #b1baba;
   border: none;
-  border-radius: 0.5rem;
-  padding: 1rem;
+  border-radius: 0.3rem;
+  padding: 0.7rem;
+  font-size: medium;
 }
+.rangebars{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 
+}
 .submitB {
   display: flex;
   align-items: center;
