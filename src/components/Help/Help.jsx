@@ -61,7 +61,7 @@ const Help = ({ onClose }) => {
               Petrol
             </li>
             <li>
-              <strong style={liststyle}>Mileage [Car efficiency]:</strong>{" "}
+              <strong style={liststyle}>Mileage* [Car efficiency]:</strong>{" "}
               between 15-40
             </li>
             <li>
@@ -74,6 +74,11 @@ const Help = ({ onClose }) => {
               <strong style={liststyle}>Price:</strong> between 1000-300.000
             </li>
           </ul>
+          <br />
+          <strong style={liststyle}>*</strong> Mileage is the average number of
+          miles a motor vehicle will travel on a gallon of gasoline that is used
+          as a measure of fuel economy
+          <br />
           <br />
           This prototype uses an Indian Car dataset for... prototyping purposes.
           <br />

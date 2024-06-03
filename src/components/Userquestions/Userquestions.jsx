@@ -132,7 +132,7 @@ const UserQuestions = ({ check }) => {
           <option value="1">4th or above</option>
         </select>
         <div className={styles.rangebars}>
-          Mileage: {formValues.Mileage}
+          Mileage [MPG]: {formValues.Mileage}
           <input
             className={styles.inputbar}
             type="range"
